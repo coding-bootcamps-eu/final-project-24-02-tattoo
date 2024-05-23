@@ -1,59 +1,53 @@
 /* Global Styles */
 :root {
-    /* COLOURS */
-    --white:: #EBDFDF;
-    --accent-yellow: #DA9918;
-    --black: #202020;
-  
-    /* BUTTONS*/
-    --border-radius: 0.5rem;
-    --padding: 0.5rem 1rem;
-    --font-family: ;
-  }
-  
-  /* Reset or Normalize */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  /* COLOURS */
+  --white: : #ebdfdf;
+  --accent-yellow: #da9918;
+  --black: #202020;
 
+  /* BUTTONS*/
+  --border-radius: 0.5rem;
+  --padding: 0.5rem 1rem;
+  --font-family: ;
+}
 
-  h1{
-    font-size: 2.3rem;
-    color: var(--white);
-  }
+/* Reset or Normalize */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  h2{
-    font-size: 2rem;
-    color: var(--white);
-  }
+h1 {
+  font-size: 2.3rem;
+  color: var(--white);
+}
 
-  p {
-    color: var(--white);
-  }
+h2 {
+  font-size: 2rem;
+  color: var(--white);
+}
 
-  a {
-    text-decoration: none;
-  }  
+p {
+  color: var(--white);
+}
 
-  .container {
-    max-width: calc(100% - 6rem); /* Full width minus the space for margins */
-    margin: 0 auto; /* Center main content */
-  }
+a {
+  text-decoration: none;
+}
 
-  /* Component Styles */
-  button { 
-    padding: var(--padding);
-    color: var(--white);
-    background-color: var(--accent-yellow);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-  }
+/* Component Styles */
+button {
+  padding: var(--padding);
+  color: var(--white);
+  background-color: var(--accent-yellow);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
 
-  button:hover {
-    background-color: darken(var(--primary-color), 10%);
-  }
+button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}

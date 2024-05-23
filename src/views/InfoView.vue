@@ -89,23 +89,24 @@ img {
 h2 {
   padding: 1.5rem 1rem 0 1rem;
   color: white;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 p {
-  color: white;
+  /* color: white; */
+  /* padding: var(--padding); */
   padding: 1rem 1rem 0 1rem;
   font-size: 14px;
 }
 
-button {
+/* button {
   background-color: gold;
   padding: 0.4rem 2.5rem;
   border-radius: 5px;
   color: white;
   cursor: pointer;
   border: none;
-}
+} */
 
 .btn {
   display: flex;
