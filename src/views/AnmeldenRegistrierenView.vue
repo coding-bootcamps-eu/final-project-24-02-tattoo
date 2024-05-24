@@ -19,22 +19,18 @@
         <p>If you don't have an account yet, sign up now to enjoy all the perks:</p>
         <ul>
           <li>
-            <img
-              src="/public/icons/icon_star-black.svg"
-              style="width: 0.6rem; margin-right: 0.4rem"
-            />Easy search for the right tattoo artist
+            <img src="/icons/icon_star-black.svg" style="width: 0.6rem; margin-right: 0.4rem" />Easy
+            search for the right tattoo artist
           </li>
           <li>
             <img
-              src="/public/icons/icon_star-black.svg"
+              src="/icons/icon_star-black.svg"
               style="width: 0.6rem; margin-right: 0.4rem"
             />Straightforward appointment organisation
           </li>
           <li>
-            <img
-              src="/public/icons/icon_star-black.svg"
-              style="width: 0.6rem; margin-right: 0.4rem"
-            />Tips and tricks for tatted people
+            <img src="/icons/icon_star-black.svg" style="width: 0.6rem; margin-right: 0.4rem" />Tips
+            and tricks for tatted people
           </li>
         </ul>
       </div>

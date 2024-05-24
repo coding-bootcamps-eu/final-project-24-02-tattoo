@@ -1,5 +1,5 @@
 <template>
-  <div><img src="/public/logo/tat.u-shadow.svg" alt="orange tat.u logo" /></div>
+  <div><img src="/logo/tat.u-shadow.svg" alt="orange tat.u logo" /></div>
 </template>
 
 <script>
