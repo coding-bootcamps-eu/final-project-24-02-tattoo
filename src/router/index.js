@@ -6,6 +6,8 @@ import AnmeldenView from '@/views/AnmeldenView.vue'
 import ArtistView from '@/views/ArtistView.vue'
 import CollectorView from '@/views/CollectorView.vue'
 import RegistrierenView from '@/views/RegistrierenView.vue'
+import FAQs from '@/views/FAQView.vue'
+import BasicKnowledge from '@/components/BasicKnowledge.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +46,16 @@ const router = createRouter({
       path: '/registierenview',
       name: 'registierenview',
       component: RegistrierenView
+    },
+    {
+      path: '/faq',
+      name: 'FAQView',
+      component: FAQs
+    },
+    {
+      path: '/basic-knowledge',
+      name: 'BasicKnowledge',
+      component: BasicKnowledge
     }
   ]
 })
