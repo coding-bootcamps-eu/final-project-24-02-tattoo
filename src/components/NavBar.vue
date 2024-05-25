@@ -1,32 +1,28 @@
 <template>
-  <div class="container">
-    <nav class="navigation">
-      <ul>
-        <li
-          v-for="(item, index) in navItems"
-          :key="index"
-          :class="{ list: true, active: activeIndex === index }"
-          @click="setActive(index)"
-        >
-          <a href="#">
-            <span class="icon"><img :src="item.icon" alt="" /></span>
-            <span class="text">{{ item.text }}</span>
-          </a>
-        </li>
-        <div
-          class="indicator"
-          :style="{ transform: 'translateX(' + activeIndex * 70 + 'px)' }"
-        ></div>
-      </ul>
-    </nav>
-  </div>
+  <nav class="navigation">
+    <ul class="nav-list">
+      <li
+        v-for="(item, index) in navItems"
+        :key="index"
+        :class="{ list: true, active: activeIndex === index }"
+        @click="setActive(index)"
+      >
+        <router-link class="router-link" to="">
+          <span class="icon"><img :src="item.icon" alt="icon" class="icon-img" /></span>
+          <span class="text">{{ item.text }}</span>
+        </router-link>
+        <router-view />
+      </li>
+      <div class="indicator" :style="{ transform: 'translateX(' + activeIndex * 70 + 'px)' }"></div>
+    </ul>
+  </nav>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      activeIndex: 0, // Initially set the first item as active
+      activeIndex: 2, // Initially set the third item as active
       navItems: [
         { icon: '/public/icons/icon_skull-white.svg', text: 'Home' },
         { icon: '/public/icons/icon_calendar.svg', text: 'Calendar' },
@@ -45,29 +41,14 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: var(--white);
-  position: fixed;
-  bottom: 0;
-
-}
-
-ul {
-  all: unset;
-}
-
-img {
+.icon-img {
   width: 20px;
 }
 
 .navigation {
-  width: 400px;
+  width: 375px;
   height: 70px;
-  background-color: var(--black);
+  background-color: black;
   position: relative;
   display: flex;
   justify-content: center;
@@ -75,9 +56,15 @@ img {
   border-radius: 10px 10px 0 0;
 }
 
-ul {
+.nav-list,
+.navigation {
+  position: fixed;
+  bottom: 0;
+  left: 250px;
+}
+
+.nav-list {
   display: flex;
-  width: 350px;
 }
 
 li {
@@ -87,7 +74,7 @@ li {
   z-index: 1;
 }
 
-a {
+.router-link {
   display: flex;
   position: relative;
   justify-content: center;
@@ -95,7 +82,6 @@ a {
   flex-direction: column;
   width: 100%;
   text-align: center;
-  font-weight: 500; /* maybe remove later */
 }
 
 .icon {
@@ -109,14 +95,13 @@ a {
 }
 
 .navigation ul li.active a .icon {
-  transform: translateY(-36px);
+  transform: translateY(-38px);
 }
 
 .text {
   position: absolute;
+  font-size: 1rem;
   color: var(--white);
-  font-weight: 400; /* Maybe remove later*/
-  letter-spacing: 0.05rem; /* Maybe remove later*/
   opacity: 0;
   transform: translateY(10px);
 }
@@ -132,9 +117,9 @@ a {
   top: -50%;
   width: 70px;
   height: 70px;
-  background-color: var(--black);
+  background-color: black;
   border-radius: 50%;
-  border: 5px solid var(--white); /* change color to custom property once it works. Right now it does not take the cp color */
+  border: 5px solid var(--black);
   transition: 0.5s;
 }
 
@@ -147,7 +132,7 @@ a {
   height: 20px;
   background-color: transparent;
   border-top-right-radius: 20px;
-  box-shadow: 1px -10px 0 0 var(--white);
+  box-shadow: 1px -10px 0 0 var(--black);
 }
 
 .indicator::after {
@@ -159,7 +144,7 @@ a {
   height: 20px;
   background-color: transparent;
   border-top-left-radius: 20px;
-  box-shadow: -1px -10px 0 0 var(--white);
+  box-shadow: -1px -10px 0 0 var(--black);
 }
 
 /* Make indicator jump to the next navigation item */
