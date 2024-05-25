@@ -10,7 +10,6 @@ import FAQs from '@/views/FAQView.vue'
 import BasicKnowledge from '@/components/BasicKnowledge.vue'
 import ChatPageView from '@/views/ChatPageView.vue'
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -56,12 +55,6 @@ const router = createRouter({
       component: CollectorView
     },
 
-    {
-      path: '/registierenview',
-      name: 'registierenview',
-      component: RegistrierenView
-    },
-    
     {
       path: '/chat',
       name: 'chatpageview',
