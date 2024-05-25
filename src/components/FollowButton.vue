@@ -37,6 +37,7 @@ export default {
 .following {
   background-color: var(--black);
   color: var(--white);
+  border: 0.05rem solid var(--black);
   display: flex;
   justify-content: center;
   align-items: center;
