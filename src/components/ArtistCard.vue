@@ -63,7 +63,6 @@ export default {
           tags: ['Blackwork', 'Traditional'],
           portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }]
         },
-
         {
           id: 2,
           artistName: 'mimi.tatts',
@@ -94,25 +93,46 @@ export default {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
 }
+
+.artist-cards::-webkit-scrollbar {
+  display: none; /* Safari/Chrome/Opera */
+}
+
 .artist-card {
   background-color: var(--grey);
   border-radius: 1rem;
-  max-width: 85%;
+  min-width: 85%;
   margin: auto;
+  scroll-snap-align: center;
+  flex-shrink: 0;
 }
 
 .portfolio {
   display: flex;
   gap: 0.2rem;
   padding: 1rem;
-  overflow: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  max-width: calc(200px + 100px); /* Show first image and half of the second */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.portfolio::-webkit-scrollbar {
+  display: none; /* Safari/Chrome/Opera */
 }
 
 .portfolio-img {
   background-color: #d1bca8;
-  padding: 10rem 8rem;
-  overflow: hidden;
+  width: 200px;
+  height: 300px;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  scroll-snap-align: center;
 }
 
 .profile-pic {
@@ -149,6 +169,7 @@ export default {
 .fa-solid {
   font-size: 0.7rem;
 }
+
 .artist-info {
   padding: 1rem;
 }
