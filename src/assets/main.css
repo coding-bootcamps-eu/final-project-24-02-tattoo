@@ -79,6 +79,8 @@
   --accent-color: #da9918; /* Accent color */
   --black: #202020; /* Black background color */
   --grey: #333333;
+  --alert: #b94141;
+  --green: #a8bf7c;
 
   /* BUTTONS*/
   --border-radius: 0.5rem;
