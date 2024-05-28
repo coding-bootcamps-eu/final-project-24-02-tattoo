@@ -146,6 +146,9 @@ button {
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  text-align: center;
 }
 
 button:hover {

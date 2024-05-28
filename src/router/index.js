@@ -9,6 +9,8 @@ import RegistrierenView from '@/views/RegistrierenView.vue'
 import FAQs from '@/views/FAQView.vue'
 import BasicKnowledge from '@/components/BasicKnowledge.vue'
 import ChatPageView from '@/views/ChatPageView.vue'
+import CollectorReg from '../views/CollectorRegView.vue'
+import DataProtection from '../views/DataProtectionView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -71,6 +73,16 @@ const router = createRouter({
       path: '/basic-knowledge',
       name: 'BasicKnowledge',
       component: BasicKnowledge
+    },
+    {
+      path: '/registration',
+      name: 'CollectorRegistration',
+      component: CollectorReg
+    },
+    {
+      path: '/data-protection',
+      name: 'DataProtection',
+      component: DataProtection
     }
   ]
 })

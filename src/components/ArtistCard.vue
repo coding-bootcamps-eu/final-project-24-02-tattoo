@@ -7,7 +7,7 @@
         </div>
         <div class="artist-info">
           <div class="artist-tag">
-            <div class="profile-pic"></div>
+            <ProfilePic :src="card.profilePic" alt="profile picture of + {{ card.artistName }}" />
             <div>
               <h3>@{{ card.artistName }}</h3>
               <div class="flex">
@@ -34,7 +34,8 @@
           </div>
           <div class="button-sec">
             <FollowButton />
-            <button class="request-button">Send request</button>
+            <RequestButton />
+            <!-- <button class="request-button">Send request</button> -->
           </div>
         </div>
       </div>
@@ -44,10 +45,14 @@
 
 <script>
 import FollowButton from '@/components/FollowButton.vue'
+import RequestButton from '@/components/RequestButton.vue'
+import ProfilePic from '@/components/ProfilePicture.vue'
 
 export default {
   components: {
-    FollowButton
+    FollowButton,
+    RequestButton,
+    ProfilePic
   },
   data() {
     return {
@@ -61,7 +66,8 @@ export default {
           distance: '5km away',
           responseTime: 'Response within an hour',
           tags: ['Blackwork', 'Traditional'],
-          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }]
+          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
+          profilePic: '/img/4.JPG'
         },
         {
           id: 2,
@@ -72,7 +78,8 @@ export default {
           distance: '7.2km away',
           responseTime: 'Response within a day',
           tags: ['Handpoke', 'Fineline'],
-          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }]
+          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
+          profilePic: '/img/8.JPG'
         }
         // Add more artist cards as needed
       ]
@@ -94,7 +101,6 @@ export default {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer/Edge */
 }
 
 .artist-cards::-webkit-scrollbar {
@@ -119,7 +125,6 @@ export default {
   scroll-behavior: smooth;
   max-width: calc(200px + 100px); /* Show first image and half of the second */
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer/Edge */
 }
 
 .portfolio::-webkit-scrollbar {
@@ -133,14 +138,6 @@ export default {
   border-radius: 1rem;
   flex-shrink: 0;
   scroll-snap-align: center;
-}
-
-.profile-pic {
-  background-color: var(--accent-color);
-  padding: 1.7rem;
-  max-width: 1.5rem;
-  max-height: 1.5rem;
-  border-radius: 50%;
 }
 
 .artist-tag {
