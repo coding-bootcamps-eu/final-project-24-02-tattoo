@@ -24,11 +24,11 @@ export default {
     return {
       activeIndex: 2, // Initially set the third item as active
       navItems: [
-        { icon: '/public/icons/icon_skull-white.svg', text: 'Home' },
-        { icon: '/public/icons/icon_calendar.svg', text: 'Calendar' },
-        { icon: '/public/icons/icon_search.svg', text: 'Search' },
-        { icon: '/public/icons/icon_message.svg', text: 'Messages' },
-        { icon: '/public/icons/icon_profile.svg', text: 'Profile' }
+        { icon: '/icons/icon_skull-white.svg', text: 'Home' },
+        { icon: '/icons/icon_calendar.svg', text: 'Calendar' },
+        { icon: '/icons/icon_search.svg', text: 'Search' },
+        { icon: '/icons/icon_message.svg', text: 'Messages' },
+        { icon: '/icons/icon_profile.svg', text: 'Profile' }
       ]
     }
   },
@@ -60,7 +60,6 @@ export default {
 .navigation {
   position: fixed;
   bottom: 0;
-  left: 250px;
 }
 
 .nav-list {
