@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     buttonText() {
-      return this.isFollowing ? 'Following' : 'Follow'
+      return this.isFollowing ? 'following.' : 'follow.'
     },
     buttonClass() {
       return this.isFollowing ? 'following' : 'follow'
@@ -32,6 +32,7 @@ export default {
   background-color: transparent;
   border: 0.05rem solid var(--white);
   transition: 0.5s;
+  font-weight: 800;
 }
 
 .following {
@@ -42,6 +43,6 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  transition: 0.5s;
+  font-weight: 800;
 }
 </style>
