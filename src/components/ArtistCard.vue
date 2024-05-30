@@ -155,6 +155,7 @@ export default {
 
 .rate {
   border-right: solid 0.05rem var(--white);
+  padding-right: 1rem;
 }
 
 .flex {

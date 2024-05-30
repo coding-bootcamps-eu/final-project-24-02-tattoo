@@ -10,7 +10,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'request.'
+      default: 'request'
     },
     path: {
       type: String,

@@ -1,7 +1,6 @@
 <template>
-  <router-link to="/infoview"> </router-link>
   <RouterView />
-  <NavBar/>
+  <NavBar />
 </template>
 
 <script>

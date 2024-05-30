@@ -60,20 +60,25 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  gap: 10px;
+  gap: 0.6rem;
 }
 
 .tag {
   background-color: var(--grey);
   border: none;
   color: var(--white);
-  width: 100px;
-  height: 55px;
-  border-radius: 5px;
+  width: 6.2rem;
+  height: 3rem;
+  border-radius: 0.35rem;
   cursor: pointer;
   transition: background-color 0.3s;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
+  line-height: 1rem;
   padding: 0;
+  text-align: center; /* Center text alignment */
+  hyphens: auto; /* Enable hyphenation */
+  word-break: break-word; /* Break words to fit */
+  overflow-wrap: break-word; /* Ensure long words break */
 }
 
 .tag.selected {

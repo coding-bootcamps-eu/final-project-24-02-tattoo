@@ -5,8 +5,10 @@
       title="Tattoo Collector"
       subtitle="This part is optional. You may wish to skip this step."
     />
+
     <div class="registration-container">
-      <HeadlineSub title="Where Are You From?" subtitle="Location" />
+      <HeadlineSub title="Where Are You From?" :isFirst="true" />
+      <LocationInput />
       <HeadlineSub title="Your Favourite Art Style(s)" subtitle="Select up to 5 styles." />
       <TagSelection />
       <HeadlineSub
@@ -16,7 +18,7 @@
       <ToggleForm :items="healthItems" />
       <HeadlineSub title="Let them know!" subtitle="Share my health information…" />
       <ToggleForm :items="shareItems" />
-      <NextButton />
+      <NextButton path="/data-protection" @next-clicked="handleNextClick" />
     </div>
   </div>
 </template>
@@ -27,6 +29,7 @@ import TagSelection from '@/components/TagSelection.vue'
 import HeadlineSub from '@/components/HeadlineSub.vue'
 import ToggleForm from '@/components/ToggleForm.vue'
 import NextButton from '@/components/NextButton.vue'
+import LocationInput from '@/components/LocationInput.vue'
 
 export default {
   components: {
@@ -34,7 +37,8 @@ export default {
     TagSelection,
     HeadlineSub,
     ToggleForm,
-    NextButton
+    NextButton,
+    LocationInput
   },
   data() {
     return {
@@ -61,10 +65,9 @@ export default {
     }
   },
   methods: {
-    handleSubmit() {
-      // Handle form submission
-      console.log(this.form)
-      this.$router.push('/data-protection')
+    handleNextClick(path) {
+      // Navigate to the specified path
+      this.$router.push(path)
     }
   }
 }
@@ -76,7 +79,27 @@ export default {
   padding: 1rem 2rem 10rem;
 }
 
-.firstheadline h2 {
-  border-top: none;
+/* Responsive styles */
+@media (min-width: 600px) {
+  .registration-container {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .registration-container {
+    padding: 2rem 4rem;
+  }
+
+  input {
+    height: 3rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .registration-container {
+    padding: 2rem 6rem;
+  }
 }
 </style>

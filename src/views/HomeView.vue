@@ -1,6 +1,10 @@
 <template>
-  <GlassHeader />
-  <ArtistCard />
+  <header>
+    <GlassHeader />
+  </header>
+  <main>
+    <ArtistCard />
+  </main>
 </template>
 
 <script>
@@ -15,3 +19,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+main {
+  max-width: 90%;
+  margin: auto;
+}
+</style>

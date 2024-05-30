@@ -1,6 +1,6 @@
 <template>
-  <div class="headline-combo">
-    <span class="separater"></span>
+  <div :class="['headline-combo', { 'first-headline': isFirst }]">
+    <span v-if="!isFirst" class="separator"></span>
     <h2>{{ title }}</h2>
     <span class="line"></span>
     <p>{{ subtitle }}</p>
@@ -19,6 +19,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    isFirst: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
@@ -33,6 +38,11 @@ h2 {
   border-top: 0.1rem solid #fffff04f;
   padding-top: 3rem;
   margin: 0;
+}
+
+.first-headline h2 {
+  border-top: none;
+  padding-top: 0;
 }
 
 .line {
