@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     buttonText() {
-      return this.isFollowing ? 'following.' : 'follow.'
+      return this.isFollowing ? 'following' : 'follow'
     },
     buttonClass() {
       return this.isFollowing ? 'following' : 'follow'

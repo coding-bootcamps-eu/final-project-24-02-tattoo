@@ -1,26 +1,30 @@
 <template>
   <header>
-    <h2>Artists near Düsseldorf</h2>
-    <button>help</button>
+    <div class="location">
+      <span></span>
+      <h3>Artists near Düsseldorf</h3>
+      <button>help</button>
+    </div>
   </header>
 </template>
 
 <style scoped>
-header {
-  display: flex;
+.location {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   justify-content: space-evenly;
   align-items: center;
+  justify-items: center;
   width: 100%;
-  height: 70px;
+  height: 75px;
   z-index: 1;
   position: fixed;
   top: 0;
 
   /* From https://css.glass */
-  background: rgba(218, 153, 24, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgb(186 186 186 / 28%);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
 }
 
 button {
@@ -35,9 +39,5 @@ button {
 button:hover {
   background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-}
-
-h2 {
-  font-size: 1rem;
 }
 </style>

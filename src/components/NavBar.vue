@@ -3,15 +3,14 @@
     <ul class="nav-list">
       <li
         v-for="(item, index) in navItems"
-        :key="index"
+        :key="item.text"
         :class="{ list: true, active: activeIndex === index }"
         @click="setActive(index)"
       >
-        <router-link class="router-link" to="">
+        <router-link class="router-link" :to="item.route">
           <span class="icon"><img :src="item.icon" alt="icon" class="icon-img" /></span>
           <span class="text">{{ item.text }}</span>
         </router-link>
-        <router-view />
       </li>
       <div class="indicator" :style="{ transform: 'translateX(' + activeIndex * 70 + 'px)' }"></div>
     </ul>
@@ -24,11 +23,11 @@ export default {
     return {
       activeIndex: 2, // Initially set the third item as active
       navItems: [
-        { icon: '/icons/icon_skull-white.svg', text: 'Home' },
-        { icon: '/icons/icon_calendar.svg', text: 'Calendar' },
-        { icon: '/icons/icon_search.svg', text: 'Search' },
-        { icon: '/icons/icon_message.svg', text: 'Messages' },
-        { icon: '/icons/icon_profile.svg', text: 'Profile' }
+        { icon: '/icons/icon_skull-white.svg', text: 'Home', route: '/' },
+        { icon: '/icons/icon_calendar.svg', text: 'Calendar', route: '/calendar' },
+        { icon: '/icons/icon_search.svg', text: 'Search', route: '/search' },
+        { icon: '/icons/icon_message.svg', text: 'Messages', route: '/messages' },
+        { icon: '/icons/icon_profile.svg', text: 'Profile', route: '/profile' }
       ]
     }
   },

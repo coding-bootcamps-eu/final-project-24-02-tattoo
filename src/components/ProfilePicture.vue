@@ -26,5 +26,6 @@ export default {
   height: 3.5rem;
   width: 3.5rem;
   object-fit: cover;
+  border: 0.1rem solid var(--accent-color);
 }
 </style>
