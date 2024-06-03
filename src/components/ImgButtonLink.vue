@@ -40,6 +40,7 @@ export default {
   justify-content: center;
   gap: 1rem;
   margin: 1rem;
+  height: 30vh;
 }
 
 .btn-wrap-tattoo-artist {
