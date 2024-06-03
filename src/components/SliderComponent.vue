@@ -72,9 +72,6 @@ export default {
     prevSlide() {
       this.active = this.active - 1 >= 0 ? this.active - 1 : this.active
     }
-  },
-  mounted() {
-    this.loadShow()
   }
 }
 </script>
