@@ -6,6 +6,7 @@
           <div class="portfolio-img" v-for="img in card.portfolioImgs" :key="img.id"></div>
         </div>
         <div class="artist-info">
+          <router-link to="artist">
           <div class="artist-tag">
             <ProfilePic :src="card.profilePic" alt="profile picture of + {{ card.artistName }}" />
             <div>
@@ -16,6 +17,7 @@
               </div>
             </div>
           </div>
+        </router-link>
           <div class="info-sec">
             <div class="rate">
               <p>Hourly rate: {{ card.hourlyRate }}</p>

@@ -3,7 +3,7 @@
     <!-- HEADER SECTION -->
     <header>
       <h3>
-        <router-link to="HomeView"> &lt; jenjen </router-link>
+        <router-link to="/"> &lt; jenjen </router-link>
       </h3>
     </header>
 
