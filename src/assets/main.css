@@ -1,59 +1,182 @@
 /* Global Styles */
+
+/* inter-100 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-100.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/inter-v13-latin/inter-v13-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 :root {
-    /* COLOURS */
-    --white:: #EBDFDF;
-    --accent-yellow: #DA9918;
-    --black: #202020;
-  
-    /* BUTTONS*/
-    --border-radius: 0.5rem;
-    --padding: 0.5rem 1rem;
-    --font-family: ;
-  }
-  
-  /* Reset or Normalize */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  /* COLOURS */
+  --white: #fffff0; /* White text color */
+  --accent-color: #da9918; /* Accent color */
+  --black: #202020; /* Black background color */
+  --grey: #333333;
+  --alert: #b94141;
+  --green: #a8bf7c;
 
+  /* BUTTONS*/
+  --border-radius: 0.5rem;
+  --padding: 0.5rem 1.5rem;
 
-  h1{
-    font-size: 2.3rem;
-    color: var(--white);
+  /* Font Family */
+  --font-family: 'Inter';
+
+  /* FONT SIZES */
+  --font-size-base: 0.9rem; /* Base font size */
+  --font-size-h1: 1.75rem; /* Heading 1 size for mobile */
+  --font-size-h2: 1.4rem; /* Heading 2 size for mobile */
+  --font-size-p: 0.9rem; /* Paragraph size for mobile */
+}
+
+/* Reset or Normalize */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--black);
+  color: var(--white);
+  font-size: var(--font-size-base);
+  line-height: 1.55;
+}
+
+/* Typography */
+h1 {
+  font-size: var(--font-size-h1);
+  color: var(--white);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  color: var(--white);
+}
+
+p {
+  font-size: var(--font-size-p);
+  color: var(--white);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+ul li {
+  font-size: var(--font-size-p);
+  color: var(--white);
+}
+/* Component Styles */
+button {
+  padding: var(--padding);
+  color: var(--white);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+button:hover {
+  background-color: darken(var(--accent-color), 10%);
+}
+
+/* Responsive Typography Adjustments */
+@media (min-width: 576px) {
+  :root {
+    --font-size-h1: 2.25rem;
+    --font-size-h2: 2rem;
+    --font-size-p: 1.125rem;
   }
+}
 
-  h2{
-    font-size: 2rem;
-    color: var(--white);
+@media (min-width: 768px) {
+  :root {
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2.25rem;
+    --font-size-p: 1.25rem;
   }
+}
 
-  p {
-    color: var(--white);
+@media (min-width: 992px) {
+  :root {
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.5rem;
+    --font-size-p: 1.5rem;
   }
-
-  a {
-    text-decoration: none;
-  }  
-
-  .container {
-    max-width: calc(100% - 6rem); /* Full width minus the space for margins */
-    margin: 0 auto; /* Center main content */
-  }
-
-  /* Component Styles */
-  button { 
-    padding: var(--padding);
-    color: var(--white);
-    background-color: var(--accent-yellow);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: darken(var(--primary-color), 10%);
-  }
+}
