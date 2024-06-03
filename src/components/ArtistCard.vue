@@ -1,4 +1,6 @@
 <template>
+  <LogoOrange class="logo" />
+  <span class="line"></span>
   <section class="artist-cards-container">
     <div class="artist-cards">
       <div class="artist-card" v-for="card in artistCards" :key="card.id">
@@ -7,7 +9,11 @@
         </div>
         <div class="artist-info">
           <div class="artist-tag">
-            <ProfilePic :src="card.profilePic" alt="profile picture of + {{ card.artistName }}" />
+            <ProfilePicture
+              :src="card.profilePic"
+              :alt="'Profile picture of ' + card.artistName"
+              :isArtist="card.isArtist"
+            />
             <div>
               <h3>@{{ card.artistName }}</h3>
               <div class="flex">
@@ -46,13 +52,15 @@
 <script>
 import FollowButton from '@/components/FollowButton.vue'
 import RequestButton from '@/components/RequestButton.vue'
-import ProfilePic from '@/components/ProfilePicture.vue'
+import ProfilePicture from '@/components/ProfilePicture.vue'
+import LogoOrange from '@/components/LogoOrange.vue'
 
 export default {
   components: {
     FollowButton,
     RequestButton,
-    ProfilePic
+    ProfilePicture,
+    LogoOrange
   },
   data() {
     return {
@@ -67,7 +75,8 @@ export default {
           responseTime: 'Response within an hour',
           tags: ['Blackwork', 'Traditional'],
           portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
-          profilePic: '/img/4.JPG'
+          profilePic: '/img/4.JPG',
+          isArtist: true // Specify if the user is an artist or not
         },
         {
           id: 2,
@@ -79,7 +88,8 @@ export default {
           responseTime: 'Response within a day',
           tags: ['Handpoke', 'Fineline'],
           portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
-          profilePic: '/img/8.JPG'
+          profilePic: '/img/8.JPG',
+          isArtist: true
         }
         // Add more artist cards as needed
       ]
@@ -89,9 +99,15 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  margin-top: 0.5rem;
+  scale: 0.6;
+}
+
 .artist-cards-container {
   overflow: hidden;
   position: relative;
+  margin: 0.5rem 0 8rem;
 }
 
 .artist-cards {
@@ -109,7 +125,7 @@ export default {
 
 .artist-card {
   background-color: var(--grey);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   min-width: 85%;
   margin: auto;
   scroll-snap-align: center;
@@ -118,7 +134,7 @@ export default {
 
 .portfolio {
   display: flex;
-  gap: 0.2rem;
+  gap: 0.6rem;
   padding: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -133,9 +149,9 @@ export default {
 
 .portfolio-img {
   background-color: #d1bca8;
-  width: 200px;
-  height: 300px;
-  border-radius: 1rem;
+  width: 12rem;
+  height: 15rem;
+  border-radius: 0.3rem;
   flex-shrink: 0;
   scroll-snap-align: center;
 }
@@ -169,7 +185,7 @@ export default {
 }
 
 .artist-info {
-  padding: 1rem;
+  padding: 0 1rem 1rem;
 }
 
 .artist-info h2 {

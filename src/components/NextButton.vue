@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="handleClick" class="next-button">
+    <button @click="navigate" class="next-button">
       {{ label }}
     </button>
   </div>
@@ -20,8 +20,8 @@ export default {
     }
   },
   methods: {
-    handleClick() {
-      this.$emit('next-clicked', this.path)
+    navigate() {
+      this.$router.push(this.path)
     }
   }
 }
@@ -36,6 +36,7 @@ div {
   margin-top: 2rem;
 }
 .next-button:hover {
+  border: 0.035rem solid var(--white);
   background-color: var(--black);
 }
 </style>

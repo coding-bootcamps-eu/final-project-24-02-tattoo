@@ -1,12 +1,23 @@
 <template>
-  <header>
-    <div class="location">
-      <span></span>
-      <h3>Artists near Düsseldorf</h3>
-      <button>help</button>
-    </div>
-  </header>
+  <div :class="['location', { visible: isVisible, hidden: !isVisible }]">
+    <span></span>
+    <h3>Artists near Düsseldorf</h3>
+    <router-link to="/faq" class="help-button">
+      <button>Help</button>
+    </router-link>
+  </div>
 </template>
+
+<script>
+export default {
+  props: {
+    isVisible: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
+</script>
 
 <style scoped>
 .location {
@@ -17,27 +28,45 @@
   justify-items: center;
   width: 100%;
   height: 75px;
-  z-index: 1;
+  padding: 2.5rem 0;
+  z-index: 5;
   position: fixed;
   top: 0;
-
   /* From https://css.glass */
-  background: rgb(186 186 186 / 28%);
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition:
+    transform 0.8s ease-in-out,
+    opacity 0.8s ease-in-out;
 }
 
 button {
   all: unset;
   text-align: center;
-  width: 50px;
+  width: 45px;
   height: 25px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.187);
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 0.8rem;
 }
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
+}
+
+.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 </style>

@@ -7,7 +7,12 @@
 
       <div class="artist-info">
         <div class="artist-tag">
-          <ProfilePic :src="card.profilePic" alt="profile picture of + {{ card.artistName }}" />
+          <ProfilePic
+            :src="card.profilePic"
+            :alt="'Profile picture of ' + card.artistName"
+            :isArtist="card.isArtist"
+            style="scale: 1.6"
+          />
           <div>
             <div class="artist">
               <h3>@{{ card.artistName }}</h3>
@@ -26,7 +31,7 @@
           <FollowButton />
           <RequestButton />
         </div>
-        <div class="artist-cta">
+        <!-- <div class="artist-cta">
           <div class="info-sec">
             <div class="rate">
               <div class="flex">
@@ -37,13 +42,13 @@
                 <i class="fa-regular fa-calendar"></i>
                 <p>Daily rate: {{ card.dailyRate }}</p>
               </div>
-              <div class="flex">
-                <i class="fa-regular fa-comment-dots"></i>
-                <span class="response-time">{{ card.responseTime }}</span>
-              </div>
+            </div>
+            <div class="flex">
+              <i class="fa-regular fa-comment-dots"></i>
+              <span class="response-time">{{ card.responseTime }}</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="profile-tabs">
@@ -59,7 +64,7 @@
       <button @click="selectTab('flash')" :class="{ active: selectedTab === 'flash' }">
         Flash
       </button>
-      <div class="line"></div>
+      <div class="line" :style="{ transform: `translateX(${linePosition}px)` }"></div>
     </div>
     <div v-if="selectedTab === 'portfolio'" class="portfolio">
       <div v-for="(image, index) in portfolioImages" :key="index" class="portfolio-item">
@@ -90,7 +95,17 @@ export default {
     return {
       isFollowing: false,
       selectedTab: 'portfolio',
-      avatarImage: '100', // Placeholder for the avatar image
+      artistCards: [
+        {
+          id: 1,
+          artistName: 'muankey',
+          studioLocation: 'Tattoo Studio – Düsseldorf',
+          tags: ['Blackwork', 'Traditional'],
+          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
+          profilePic: '/img/4.JPG',
+          isArtist: true // Specify if the user is an artist or not
+        }
+      ],
       portfolioImages: [
         // Placeholder images for portfolio
         'public/img/1.JPG',
@@ -99,33 +114,30 @@ export default {
         'public/img/7.JPG',
         'public/img/9.JPG'
       ],
-      artistCards: [
-        {
-          id: 1,
-          artistName: 'muankey',
-          studioLocation: 'Tattoo Studio – Düsseldorf',
-          hourlyRate: '100€',
-          dailyRate: '600€',
-          distance: '5km away',
-          responseTime: 'Response within an hour',
-          tags: ['Blackwork', 'Traditional'],
-          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
-          profilePic: '/img/4.JPG'
-        }
-      ]
+      linePosition: 0,
+      tabWidth: 0
     }
+  },
+
+  mounted() {
+    this.updateLinePosition()
+    window.addEventListener('resize', this.updateLinePosition)
+  },
+
+  unmounted() {
+    window.removeEventListener('resize', this.updateLinePosition)
   },
 
   methods: {
     selectTab(tab) {
       this.selectedTab = tab
+      this.updateLinePosition()
     },
-    toggleFollow() {
-      this.isFollowing = !this.isFollowing
-    },
-    requestAppointment() {
-      // Logic to request an appointment
-      alert('Appointment request sent.')
+    updateLinePosition() {
+      const activeTabButton = document.querySelector('.profile-tabs .active')
+      if (activeTabButton) {
+        this.linePosition = activeTabButton.offsetLeft + activeTabButton.offsetWidth / 2
+      }
     }
   }
 }
@@ -134,7 +146,7 @@ export default {
 <style scoped>
 .artist-card {
   display: grid;
-  padding: 3rem 0 0;
+  padding: 5rem 0 0;
 }
 .profile {
   max-width: 90%;
@@ -178,10 +190,9 @@ export default {
   margin-bottom: 1rem;
 }
 
-.info-sec {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
+.rate {
+  display: flex;
+  justify-content: space-between;
 }
 
 .rate,
@@ -215,7 +226,7 @@ p {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
-  margin: 1.7rem 0 2rem;
+  margin: 3rem 0 2rem;
 }
 .follow,
 .following,
@@ -231,16 +242,29 @@ p {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: 3rem;
   margin-bottom: 10px;
+  position: relative;
 }
 .profile-tabs button {
   background-color: transparent;
   border: none;
   color: white;
   cursor: pointer;
+  position: relative;
 }
+
+.profile-tabs .line {
+  height: 2px;
+  width: 0;
+  background-color: #f0a500;
+  position: absolute;
+  bottom: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
 .profile-tabs button.active {
-  border-bottom: 2px solid #f0a500;
+  color: #f0a500;
 }
+
 .portfolio {
   display: flex;
   flex-wrap: wrap;

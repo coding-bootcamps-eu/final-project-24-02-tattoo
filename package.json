@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "pinia": "^2.1.7",
+    "swiper": "^8.4.7",
     "vue": "^3.4.21",
+    "vue-awesome-swiper": "^5.0.1",
     "vue-router": "^4.3.0",
     "vue2-google-maps": "^0.10.7"
   },
