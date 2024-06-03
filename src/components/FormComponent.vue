@@ -1,15 +1,20 @@
 <template>
   <div>
-    <!-- Formular -->
+    <!-- Form -->
     <form>
       <div v-for="(field, index) in fields" :key="index" class="input-wrap">
         <label :for="'field-' + index">{{ field.label }}</label>
-        <input
-          :type="field.type"
+        <component
+          :is="field.type === 'select' ? 'select' : 'input'"
+          :type="field.type !== 'select' ? field.type : undefined"
           :id="'field-' + index"
           v-model="field.value"
           v-bind="field.attrs"
-        />
+        >
+          <option v-for="option in field.options" :key="option" :value="option">
+            {{ option }}
+          </option>
+        </component>
       </div>
     </form>
   </div>
@@ -23,7 +28,13 @@ export default {
   setup() {
     const fields = ref([
       { label: 'Account Name', type: 'text', value: '', attrs: {} },
-      { label: 'Pronouns', type: 'text', value: '', attrs: {} },
+      { 
+        label: 'Pronouns', 
+        type: 'select', 
+        value: '', 
+        options: ['She/Her', 'He/Him', 'They/Them', 'Non-binary', 'Other'], 
+        attrs: {} 
+      },
       { label: 'First Name', type: 'text', value: '', attrs: {} },
       { label: 'Last Name', type: 'text', value: '', attrs: {} },
       { label: 'Birthday', type: 'date', value: '', attrs: {} },
@@ -42,7 +53,7 @@ export default {
   margin: 1rem;
 }
 
-input {
+input, select {
   width: 100%;
   padding: 0.5rem;
   border: none;
@@ -53,7 +64,7 @@ input {
   box-shadow: inset -7px 13px 32px -18px rgba(0, 0, 0, 0.335);
 }
 
-input,
+input, select,
 .input-wrap {
   font-family: var(--font-family);
 }
