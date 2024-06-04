@@ -9,10 +9,11 @@
         <button class="social-button facebook">f</button>
       </div>
     </div>
-
-    <div class="register-section">
-      <button class="register-button">Sign Up</button>
-    </div>
+    <router-link to="sign-up">
+      <div class="register-section">
+        <button class="register-button">Sign Up</button>
+      </div></router-link
+    >
     <div class="info-section">
       <div>
         <h2>GOT INK?</h2>

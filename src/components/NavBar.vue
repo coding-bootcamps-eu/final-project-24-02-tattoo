@@ -24,7 +24,8 @@ export default {
       activeIndex: 2, // Initially set the third item as active
       navItems: [
         { icon: '/icons/icon_skull-white.svg', text: 'Home', route: '/' },
-        { icon: '/icons/icon_calendar.svg', text: 'Calendar', route: '/chat' },
+
+        { icon: '/icons/icon_calendar.svg', text: 'Calendar', route: '/welcome' },
         { icon: '/icons/icon_search.svg', text: 'Search', route: '/faq' },
         { icon: '/icons/icon_message.svg', text: 'Messages', route: '/chat' },
         { icon: '/icons/icon_profile.svg', text: 'Profile', route: '/collector' }
@@ -45,7 +46,7 @@ export default {
 }
 
 .navigation {
-  width: 375px;
+  width: 100%;
   height: 70px;
   background-color: black;
   position: relative;
@@ -59,7 +60,7 @@ export default {
 .nav-list,
 .navigation {
   position: fixed;
-  bottom: 0;
+  bottom: -15px;
 }
 
 .nav-list {
@@ -68,9 +69,10 @@ export default {
 
 li {
   list-style: none;
+  position: relative;
   width: 70px;
   height: 70px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .router-link {
@@ -86,29 +88,33 @@ li {
 .icon {
   display: block;
   position: relative;
-  line-height: 75px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   text-align: center;
   transition: 0.5s;
-  color: var(--white);
 }
 
 .navigation ul li.active a .icon {
-  transform: translateY(-38px);
+  transform: translateY(-28px);
 }
 
 .text {
   position: absolute;
   font-size: 1rem;
   color: var(--white);
+  background: var(--accent-color);
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.05rem;
+  transition: 0.5s;
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(15px);
 }
 
 .navigation ul li.active a .text {
   opacity: 1;
-  transform: translateY(10px);
-  color: var(--white);
+  transform: translateY(5px);
 }
 
 .indicator {
@@ -118,32 +124,32 @@ li {
   height: 70px;
   background-color: black;
   border-radius: 50%;
-  border: 5px solid var(--black);
   transition: 0.5s;
+  z-index: 1;
 }
 
 .indicator::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: -21px;
-  width: 20px;
-  height: 20px;
+  top: 5px;
+  left: -28px;
+  width: 30px;
+  height: 30px;
   background-color: transparent;
-  border-top-right-radius: 20px;
-  box-shadow: 1px -10px 0 0 var(--black);
+  border-radius: 50%;
+  box-shadow: 15px 18px black;
 }
 
 .indicator::after {
   content: '';
   position: absolute;
-  top: 50%;
-  right: -21px;
-  width: 20px;
-  height: 20px;
+  top: 5px;
+  right: -28px;
+  width: 30px;
+  height: 30px;
   background-color: transparent;
-  border-top-left-radius: 20px;
-  box-shadow: -1px -10px 0 0 var(--black);
+  border-radius: 50%;
+  box-shadow: -15px 18px black;
 }
 
 /* Make indicator jump to the next navigation item */
