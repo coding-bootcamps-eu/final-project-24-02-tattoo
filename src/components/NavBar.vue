@@ -24,10 +24,11 @@ export default {
       activeIndex: 2, // Initially set the third item as active
       navItems: [
         { icon: '/icons/icon_skull-white.svg', text: 'Home', route: '/' },
+
         { icon: '/icons/icon_calendar.svg', text: 'Calendar', route: '/welcome' },
         { icon: '/icons/icon_search.svg', text: 'Search', route: '/faq' },
-        { icon: '/icons/icon_message.svg', text: 'Chat', route: '/chat' },
-        { icon: '/icons/icon_profile.svg', text: 'Profile', route: '/artist' }
+        { icon: '/icons/icon_message.svg', text: 'Messages', route: '/chat' },
+        { icon: '/icons/icon_profile.svg', text: 'Profile', route: '/collector' }
       ]
     }
   },
@@ -53,6 +54,7 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 10px 10px 0 0;
+  z-index: 5;
 }
 
 .nav-list,

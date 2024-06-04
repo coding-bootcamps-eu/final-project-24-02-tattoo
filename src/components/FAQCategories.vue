@@ -30,7 +30,6 @@ export default {
 
 .categories {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   align-self: center;
   margin-top: 1.5rem;
 }
