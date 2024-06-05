@@ -102,7 +102,6 @@ input {
   background-color: var(--grey);
   max-height: 150px;
   overflow-y: auto;
-
   width: 100%;
   list-style-type: none;
   padding: 0;

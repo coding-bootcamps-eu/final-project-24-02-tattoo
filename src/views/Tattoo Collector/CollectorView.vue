@@ -1,36 +1,52 @@
 <template>
-  <div class="profile-health-check">
+  <div class="profile-sec">
     <div class="profile-header">
-      <div class="profile-image">
-        <span class="profile-icon"></span>
-      </div>
-      <div class="profile-info">
-        <h2>@name</h2>
-        <p>she/her</p>
+      <div class="collector-card" v-for="card in collectorCards" :key="card.id">
+        <div class="portfolio">
+          <div class="portfolio-img" v-for="img in card.portfolioImgs" :key="img.id"></div>
+        </div>
+
+        <div class="collector-info">
+          <div class="collector-tag">
+            <ProfilePic
+              :src="card.profilePic"
+              :alt="'Profile picture of ' + card.collectorName"
+              :isArtist="!card.isArtist"
+              style="scale: 1.6"
+            />
+            <div>
+              <div class="collector">
+                <h3>@{{ card.collectorName }}</h3>
+                <p class="pronouns">she/her</p>
+              </div>
+              <div class="flex">
+                <i class="fa-solid fa-house"></i>
+                <p>{{ card.studioLocation }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="button-sec">
+            <button class="appointment-btn">appointments</button>
+          </div>
+        </div>
       </div>
     </div>
-    <button class="appointment-btn">appointments</button>
+
     <nav class="profile-nav">
-      <a href="#" :class="{ active: section === 'about' }" @click="section = 'about'">About</a>
       <a href="#" :class="{ active: section === 'health-check' }" @click="section = 'health-check'"
         >Health Check</a
       >
+
       <a
         href="#"
         :class="{ active: section === 'existing-tattoos' }"
         @click="section = 'existing-tattoos'"
         >Existing Tattoos</a
       >
+      <a href="#" :class="{ active: section === 'fav' }" @click="section = 'fav'"
+        ><i class="fa-regular fa-heart"></i
+      ></a>
     </nav>
-    <div v-if="section === 'about'" class="about-section">
-      <div class="about-info">
-        <h3>Full Name</h3>
-        <p>Location</p>
-        <p>Age</p>
-      </div>
-      <button class="about-btn">Existing Tattoos</button>
-      <button class="about-btn">Favourite Styles</button>
-    </div>
     <div v-if="section === 'health-check'" class="health-check-section">
       <button class="health-check-btn">Allergies</button>
       <button class="health-check-btn">Medical Conditions</button>
@@ -42,66 +58,86 @@
 </template>
 
 <script>
+import ProfilePic from '@/components/ProfilePicture.vue'
+
 export default {
+  components: {
+    ProfilePic
+  },
   data() {
     return {
-      section: 'about' // default section
+      section: 'health-check', // default section
+      collectorCards: [
+        {
+          id: 1,
+          collectorName: 'sandydavies',
+          studioLocation: 'Düsseldorf',
+          profilePic: '/img/sandy.jpg',
+          isArtist: true // Specify if the user is an artist or not
+        }
+      ]
     }
   }
 }
 </script>
 
 <style scoped>
-.profile-health-check {
-  background-color: #111;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.profile-header {
+.button-sec {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.profile-image {
-  width: 100px;
-  height: 100px;
-  border: 2px solid #f0a500;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
-.profile-icon {
-  width: 50px;
-  height: 50px;
-  border: 2px solid #f0a500;
-  border-radius: 50%;
+.collector-card {
+  display: grid;
+  padding: 5rem 0 0;
+}
+.profile {
+  max-width: 90%;
+  margin: auto;
 }
 
-.profile-info h2 {
-  margin: 0;
-  font-size: 24px;
+.profile-picture {
+  height: 5rem;
+  width: 5rem;
 }
 
-.profile-info p {
-  margin: 0;
-  color: #ccc;
+.collector-tag {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.collector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.collector-cta {
+  background-color: var(--grey);
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+}
+.profile-sec {
+  display: grid;
+  align-items: center;
+  max-width: 85%;
+  padding-bottom: 8rem;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .appointment-btn {
-  background-color: #f0a500;
-  border: none;
-  color: #111;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
   margin-top: 10px;
+  text-align: center;
 }
 
 .profile-nav {
@@ -122,13 +158,13 @@ export default {
   border-bottom: 2px solid #f0a500;
 }
 
-.about-section {
+.fav-section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.about-info {
+.fav-info {
   background-color: #222;
   border: 1px solid #f0a500;
   padding: 20px;
@@ -136,24 +172,26 @@ export default {
   width: 80%;
 }
 
-.about-info h3 {
+.fav-info h3 {
   margin: 0;
   font-size: 24px;
 }
 
-.about-info p {
+.fav-info p {
   margin: 5px 0;
 }
 
-.about-btn {
-  background-color: #f0a500;
+.fav-btn {
+  background: #ffffff52;
+  color: var(--white);
+  padding: 1.4rem;
+  margin: 0.5rem;
   border: none;
-  color: #111;
-  padding: 15px;
-  font-size: 18px;
-  margin: 10px;
+  border-radius: 5px;
   cursor: pointer;
-  width: 80%;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .health-check-section,
@@ -164,12 +202,16 @@ export default {
 }
 
 .health-check-btn {
-  background-color: #f0a500;
+  background: #ffffff52;
+  color: var(--white);
+  padding: 1.4rem;
+  margin: 0.5rem;
   border: none;
-  color: #111;
-  padding: 15px;
-  font-size: 18px;
+  border-radius: 5px;
   cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .existing-tattoos-section .tattoos-image {

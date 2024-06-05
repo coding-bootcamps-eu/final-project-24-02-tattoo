@@ -1,4 +1,5 @@
 <template>
+  <HeadlineSub title="Most Popular Tattoo Style" :isFirst="true" />
   <div class="app_slider-container">
     <div class="slider">
       <div
@@ -16,16 +17,21 @@
 </template>
 
 <script>
+import HeadlineSub from '@/components/HeadlineSub.vue'
+
 export default {
+  components: {
+    HeadlineSub
+  },
   data() {
     return {
       items: [
-        { title: 'Blackwork', image: '/public/img/tattoo_blackwork.png' },
         { title: 'Traditional', image: '/public/img/tattoo_traditional.png' },
+        { title: 'Blackwork', image: '/public/img/tattoo_blackwork.png' },
         { title: 'Stick and Poke', image: '/public/img/tattoo_stick-and-poke.png' },
         { title: 'Ignorant', image: '/public/img/tattoo_ignorant.png' }
       ],
-      active: 2
+      active: 1
     }
   },
   methods: {
@@ -78,7 +84,7 @@ export default {
 
 <style scoped>
 .app_slider-container {
-  margin: 1rem;
+  margin: 1rem 1rem 8rem;
 }
 
 .slider {
@@ -102,7 +108,7 @@ export default {
 }
 
 h2 {
-  color: #da9918;
+  color: var(--white);
   font-size: 1rem;
   text-align: center;
   position: relative;
@@ -113,7 +119,7 @@ h2 {
 #prev {
   position: absolute;
   top: 37%;
-  color: #da9918;
+  color: var(--accent-color);
   background-color: transparent;
   border: none;
   font-size: xxx-large;

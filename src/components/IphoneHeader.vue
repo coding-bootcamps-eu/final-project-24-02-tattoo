@@ -1,5 +1,5 @@
 <template>
-  <section :class="{ 'home-page': isHomePage }">
+  <section :class="{ 'home-page': !isHomePage }">
     <div class="connection">
       <i class="fas fa-signal"></i>
       <p>{{ networkName }}</p>
@@ -45,8 +45,8 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.6rem auto;
-  padding: 0 0.6rem;
+  margin: auto;
+  padding: 0rem 0.6rem;
   top: 0;
   left: 0;
   right: 0;

@@ -1,29 +1,32 @@
 <template>
-  <LogoOrange class="logo" />
-  <span class="line"></span>
   <section class="artist-cards-container">
     <div class="artist-cards">
       <div class="artist-card" v-for="card in artistCards" :key="card.id">
         <div class="portfolio">
-          <div class="portfolio-img" v-for="img in card.portfolioImgs" :key="img.id"></div>
+          <div
+            class="portfolio-img"
+            v-for="img in card.portfolioImgs"
+            :key="img.id"
+            :style="{ backgroundImage: `url(${img.src})` }"
+          ></div>
         </div>
         <div class="artist-info">
           <router-link to="artist">
-          <div class="artist-tag">
-            <ProfilePicture
-              :src="card.profilePic"
-              :alt="'Profile picture of ' + card.artistName"
-              :isArtist="card.isArtist"
-            />
-            <div>
-              <h3>@{{ card.artistName }}</h3>
-              <div class="flex">
-                <i class="fa-solid fa-house"></i>
-                <p>{{ card.studioLocation }}</p>
+            <div class="artist-tag">
+              <ProfilePicture
+                :src="card.profilePic"
+                :alt="'Profile picture of ' + card.artistName"
+                :isArtist="card.isArtist"
+              />
+              <div>
+                <h3>@{{ card.artistName }}</h3>
+                <div class="flex">
+                  <i class="fa-solid fa-house"></i>
+                  <p>{{ card.studioLocation }}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </router-link>
+          </router-link>
           <div class="info-sec">
             <div class="rate">
               <p>Hourly rate: {{ card.hourlyRate }}</p>
@@ -43,7 +46,6 @@
           <div class="button-sec">
             <FollowButton />
             <RequestButton />
-            <!-- <button class="request-button">Send request</button> -->
           </div>
         </div>
       </div>
@@ -52,60 +54,26 @@
 </template>
 
 <script>
+import ProfilePicture from '@/components/ProfilePicture.vue'
 import FollowButton from '@/components/FollowButton.vue'
 import RequestButton from '@/components/RequestButton.vue'
-import ProfilePicture from '@/components/ProfilePicture.vue'
-import LogoOrange from '@/components/LogoOrange.vue'
 
 export default {
-  components: {
-    FollowButton,
-    RequestButton,
-    ProfilePicture,
-    LogoOrange
-  },
-  data() {
-    return {
-      artistCards: [
-        {
-          id: 1,
-          artistName: 'muankey',
-          studioLocation: 'Tattoo Studio – Düsseldorf',
-          hourlyRate: '100€',
-          dailyRate: '600€',
-          distance: '5km away',
-          responseTime: 'Response within an hour',
-          tags: ['Blackwork', 'Traditional'],
-          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
-          profilePic: '/img/4.JPG',
-          isArtist: true // Specify if the user is an artist or not
-        },
-        {
-          id: 2,
-          artistName: 'mimi.tatts',
-          studioLocation: 'Tattoo Studio – Düsseldorf',
-          hourlyRate: '150€',
-          dailyRate: 'negotiable',
-          distance: '7.2km away',
-          responseTime: 'Response within a day',
-          tags: ['Handpoke', 'Fineline'],
-          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
-          profilePic: '/img/8.JPG',
-          isArtist: true
-        }
-        // Add more artist cards as needed
-      ]
+  props: {
+    artistCards: {
+      type: Array,
+      required: true
     }
+  },
+  components: {
+    ProfilePicture,
+    FollowButton,
+    RequestButton
   }
 }
 </script>
 
 <style scoped>
-.logo {
-  margin-top: 0.5rem;
-  scale: 0.6;
-}
-
 .artist-cards-container {
   overflow: hidden;
   position: relative;
@@ -156,6 +124,8 @@ export default {
   border-radius: 0.3rem;
   flex-shrink: 0;
   scroll-snap-align: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .artist-tag {

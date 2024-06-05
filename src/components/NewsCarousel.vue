@@ -2,7 +2,7 @@
   <HeadlineSub title="tat.u News" :isFirst="true" />
 
   <section class="news-cards-container">
-    <swiper-component :options="swiperOptions">
+    <swiper-component>
       <swiper-slide
         class="news-card"
         v-for="card in newsCards"
@@ -32,15 +32,13 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/vue'
+
 import 'swiper/swiper-bundle.css'
 import HeadlineSub from '@/components/HeadlineSub.vue'
 
 export default defineComponent({
   name: 'NewsCarousel',
   components: {
-    SwiperComponent,
-    SwiperSlide,
     HeadlineSub
   },
   data() {
@@ -77,7 +75,6 @@ export default defineComponent({
 .news-cards-container {
   overflow: hidden;
   position: relative;
-  margin: 0rem 0 8rem;
 }
 
 .swiper-slide {
@@ -87,7 +84,7 @@ export default defineComponent({
   border-radius: 0.5rem;
   background-size: cover;
   background-position: center;
-  margin: 0;
+  margin: 0rem 0 8rem;
 }
 
 .swiper-slide::before {

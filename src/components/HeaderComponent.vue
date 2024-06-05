@@ -1,6 +1,6 @@
 <template>
   <header :style="headerStyle" class="header-component">
-    <div class="back">x</div>
+    <ReturnButton />
     <div class="content">
       <h1>{{ title }}</h1>
       <p>{{ subtitle }}</p>
@@ -9,8 +9,13 @@
 </template>
 
 <script>
+import ReturnButton from './ReturnButton.vue'
+
 export default {
   name: 'HeaderComponent',
+  components: {
+    ReturnButton
+  },
   props: {
     bgImage: {
       type: String,
@@ -45,13 +50,12 @@ export default {
 
 .header-component {
   position: relative;
-  background-size: 150%; /* Adjust as needed for zoom */
-  background-position: center; /* Adjust as needed for positioning */
-  color: #fff; /* Text color */
-  padding: 0.5rem 2rem 5.5rem; /* Padding */
-  border-radius: 0 0 1rem 1rem; /* Rounded corners at the bottom */
-  /* filter: brightness(40%) contrast(90%); Filter effect */
-  text-align: center; /* Center align text */
+  background-size: 150%;
+  background-position: center;
+  color: var(white);
+  padding: 0.5rem 2rem 5.5rem 1rem;
+  border-radius: 0 0 1rem 1rem;
+  text-align: center;
   z-index: 0; /* Ensure it's behind the text */
 }
 

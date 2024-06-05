@@ -1,10 +1,6 @@
 <template>
   <div class="profile">
     <div class="artist-card" v-for="card in artistCards" :key="card.id">
-      <div class="portfolio">
-        <div class="portfolio-img" v-for="img in card.portfolioImgs" :key="img.id"></div>
-      </div>
-
       <div class="artist-info">
         <div class="artist-tag">
           <ProfilePic
@@ -12,6 +8,7 @@
             :alt="'Profile picture of ' + card.artistName"
             :isArtist="card.isArtist"
             style="scale: 1.6"
+            @click="showImage(card.profilePic)"
           />
           <div>
             <div class="artist">
@@ -77,6 +74,12 @@
     <div v-if="selectedTab === 'reviews'" class="reviews">
       <!-- Reviews content goes here -->
     </div>
+    <ModalPopup
+      v-if="isModalVisible"
+      :isVisible="isModalVisible"
+      :imageSrc="modalImageSrc"
+      @close="isModalVisible = false"
+    />
   </div>
 </template>
 
@@ -84,12 +87,14 @@
 import FollowButton from '@/components/FollowButton.vue'
 import RequestButton from '@/components/RequestButton.vue'
 import ProfilePic from '@/components/ProfilePicture.vue'
+import ModalPopup from '@/components/ModalPopup.vue'
 
 export default {
   components: {
     FollowButton,
     RequestButton,
-    ProfilePic
+    ProfilePic,
+    ModalPopup
   },
   data() {
     return {
@@ -101,19 +106,20 @@ export default {
           artistName: 'muankey',
           studioLocation: 'Tattoo Studio – Düsseldorf',
           tags: ['Blackwork', 'Traditional'],
-          portfolioImgs: [{ id: 1 }, { id: 2 }, { id: 3 }],
+
           profilePic: '/img/4.JPG',
           isArtist: true // Specify if the user is an artist or not
         }
       ],
       portfolioImages: [
-        // Placeholder images for portfolio
         'public/img/1.JPG',
         'public/img/2.JPG',
         'public/img/3.JPG',
         'public/img/7.JPG',
         'public/img/9.JPG'
       ],
+      isModalVisible: false,
+      modalImageSrc: '',
       linePosition: 0,
       tabWidth: 0
     }
@@ -138,6 +144,10 @@ export default {
       if (activeTabButton) {
         this.linePosition = activeTabButton.offsetLeft + activeTabButton.offsetWidth / 2
       }
+    },
+    showImage(imageSrc) {
+      this.modalImageSrc = imageSrc
+      this.isModalVisible = true
     }
   }
 }
@@ -150,7 +160,7 @@ export default {
 }
 .profile {
   max-width: 90%;
-  margin: auto;
+  margin: 0 auto 8rem;
 }
 
 .profile-picture {
@@ -216,11 +226,6 @@ p {
 .specialty {
   margin: 5px 0;
 }
-.action-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
 
 .button-sec {
   display: flex;
@@ -243,6 +248,7 @@ p {
   grid-auto-rows: 3rem;
   margin-bottom: 10px;
   position: relative;
+  text-align: center;
 }
 .profile-tabs button {
   background-color: transparent;
@@ -250,6 +256,7 @@ p {
   color: white;
   cursor: pointer;
   position: relative;
+  padding: 0;
 }
 
 .profile-tabs .line {
