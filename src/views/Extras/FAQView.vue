@@ -43,7 +43,7 @@ export default {
 <style scoped>
 .faq-page {
   background-color: var(--black);
-  min-height: 100vh;
+  padding-bottom: 3rem;
 }
 .slide-fade-enter-active,
 .slide-fade-leave-active {

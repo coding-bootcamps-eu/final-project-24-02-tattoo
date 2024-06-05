@@ -5,8 +5,8 @@
     <div class="login-section">
       <p>Login with</p>
       <div class="social-container">
-        <button class="social-button google">G</button>
-        <button class="social-button facebook">f</button>
+        <button class="social-button google"><i class="fa-brands fa-google"></i></button>
+        <button class="social-button facebook"><i class="fa-brands fa-facebook-f"></i></button>
       </div>
     </div>
     <router-link to="sign-up">
@@ -130,13 +130,10 @@ h2 {
 }
 
 .social-button {
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border: 0.12rem solid var(--accent-yellow);
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
-  cursor: pointer;
+  border-radius: 0.5rem;
+  height: 2rem;
+  width: 1rem;
+  background-color: rgba(255, 255, 255, 0.796);
 }
 
 .google {

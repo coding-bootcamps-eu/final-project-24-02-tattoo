@@ -12,6 +12,8 @@ import ChatPageView from '@/views/ChatPageView.vue'
 import CollectorReg from '../views/Tattoo Collector/CollectorRegView.vue'
 import ArtistReg from '../views/Tattoo Artist/ArtistRegView.vue'
 import DataProtection from '../views/Registration-Login/DataProtectionView.vue'
+import CalendarRequest from '@/views/Extras/CalendarView.vue'
+import RequestPage from '@/views/Extras/RequestPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -89,6 +91,16 @@ const router = createRouter({
       path: '/data-protection',
       name: 'DataProtection',
       component: DataProtection
+    },
+    {
+      path: '/request',
+      name: 'RequestPage',
+      component: RequestPage
+    },
+    {
+      path: '/appointment',
+      name: 'CalendarRequest',
+      component: CalendarRequest
     }
   ]
 })

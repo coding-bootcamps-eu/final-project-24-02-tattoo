@@ -24,16 +24,16 @@
 import { ref } from 'vue'
 
 export default {
-  name: 'Form',
+  name: 'FormComp',
   setup() {
     const fields = ref([
       { label: 'Account Name', type: 'text', value: '', attrs: {} },
-      { 
-        label: 'Pronouns', 
-        type: 'select', 
-        value: '', 
-        options: ['She/Her', 'He/Him', 'They/Them', 'Non-binary', 'Other'], 
-        attrs: {} 
+      {
+        label: 'Pronouns',
+        type: 'select',
+        value: '',
+        options: ['She/Her', 'He/Him', 'They/Them', 'Non-binary', 'Other'],
+        attrs: {}
       },
       { label: 'First Name', type: 'text', value: '', attrs: {} },
       { label: 'Last Name', type: 'text', value: '', attrs: {} },
@@ -53,7 +53,8 @@ export default {
   margin: 1rem;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 0.5rem;
   border: none;
@@ -64,7 +65,8 @@ input, select {
   box-shadow: inset -7px 13px 32px -18px rgba(0, 0, 0, 0.335);
 }
 
-input, select,
+input,
+select,
 .input-wrap {
   font-family: var(--font-family);
 }

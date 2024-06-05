@@ -25,6 +25,7 @@ export default {
 
 <style scoped>
 .categories-container {
+  width: 80%;
   margin: 2.5rem auto;
 }
 

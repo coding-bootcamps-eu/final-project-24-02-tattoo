@@ -25,7 +25,7 @@ export default {
       navItems: [
         { icon: '/icons/icon_skull-white.svg', text: 'Home', route: '/' },
 
-        { icon: '/icons/icon_calendar.svg', text: 'Calendar', route: '/welcome' },
+        { icon: '/icons/icon_calendar.svg', text: 'Calendar', route: '/appointment' },
         { icon: '/icons/icon_search.svg', text: 'Search', route: '/faq' },
         { icon: '/icons/icon_message.svg', text: 'Messages', route: '/chat' },
         { icon: '/icons/icon_profile.svg', text: 'Profile', route: '/collector' }

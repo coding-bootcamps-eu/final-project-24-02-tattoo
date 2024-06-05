@@ -14,12 +14,14 @@ export default {
     },
     path: {
       type: String,
-      default: ''
+      default: '/appointment'
     }
   },
   methods: {
     handleClick() {
       this.$emit('request-clicked', this.path)
+      // If you want to navigate to the path:
+      this.$router.push(this.path)
     }
   }
 }

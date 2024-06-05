@@ -1,7 +1,7 @@
 <template>
   <section class="img-btn-component">
     <!-- Tattoo Artist Button -->
-    <router-link to="">
+    <router-link to="registration-artist">
       <div class="btn-wrap-tattoo-artist" @click="handleSubmit">
         <div class="img-filter"></div>
         <div class="icon-wrap">
@@ -12,7 +12,7 @@
     </router-link>
 
     <!-- Collector Button -->
-    <router-link to="">
+    <router-link to="registration-collector">
       <div class="btn-wrap-collector" @click="handleSubmit">
         <div class="img-filter"></div>
         <div class="icon-wrap">
